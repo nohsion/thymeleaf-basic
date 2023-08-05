@@ -12,7 +12,8 @@
 - `#uris`: URI 이스케이프 처리
 - `#dates`: `java.util.Date` 서식 지원 (날짜 관련 객체)
 - `#calendars`: `java.util.Calendar` 서식 지원 (날짜 관련 객체)
-- `#temporals`: Java8 날짜 서식 지원 (날짜 관련 객체)
+- `#temporals`: Java8 날짜 서식 지원 (LocalDate, LocalDateTime, Instant)
+  - thymeleaf-extras-java8time 라이브러리 추가 필요 (Spring Boot 타임리프를 사용하면 기본으로 포함)
 - `#numbers`: 숫자 서식 지원
 - `#strings`: 문자 관련 편의 기능
 - `#objects`: 객체 관련 편의 기능
