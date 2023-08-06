@@ -108,6 +108,12 @@ public class BasicController {
         return "basic/each";
     }
 
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        this.addUsers(model);
+        return "basic/condition";
+    }
+
     private void addUsers(Model model) {
         List<User> users = List.of(
                 User.builder().username("userA").age(10).build(),
