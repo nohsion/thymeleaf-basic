@@ -34,20 +34,23 @@ public class BasicController {
 
     @GetMapping("/variable")
     public String variable(Model model) {
+        String usernameA = "userA";
+        String usernameB = "userB";
+
         User userA = User.builder()
-                .username("userA")
+                .username(usernameA)
                 .age(10)
                 .build();
         User userB = User.builder()
-                .username("userB")
+                .username(usernameB)
                 .age(20)
                 .build();
 
         List<User> users = List.of(userA, userB);
 
         Map<String, User> userMap = Map.of(
-                "userA", userA,
-                "userB", userB
+                usernameA, userA,
+                usernameB, userB
         );
 
         model.addAttribute("user", userA);
@@ -98,6 +101,23 @@ public class BasicController {
     public String attribute() {
         return "basic/attribute";
     }
+
+    @GetMapping("/each")
+    public String each(Model model) {
+        this.addUsers(model);
+        return "basic/each";
+    }
+
+    private void addUsers(Model model) {
+        List<User> users = List.of(
+                User.builder().username("userA").age(10).build(),
+                User.builder().username("userB").age(20).build(),
+                User.builder().username("userC").age(30).build()
+        );
+
+        model.addAttribute("users", users);
+    }
+
 
     @Component("helloBean")
     static class HelloBean {
