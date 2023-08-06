@@ -128,6 +128,19 @@ public class BasicController {
         return "basic/block";
     }
 
+    @GetMapping("/javascript")
+    public String javascript(Model model) {
+        model.addAttribute("user",
+                User.builder()
+                        .username("userA")
+                        .age(10)
+                        .build()
+        );
+        this.addUsers(model);
+
+        return "basic/javascript";
+    }
+
     private void addUsers(Model model) {
         List<User> users = List.of(
                 User.builder().username("userA").age(10).build(),
