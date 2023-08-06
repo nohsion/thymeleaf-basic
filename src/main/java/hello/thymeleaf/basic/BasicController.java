@@ -20,6 +20,8 @@ import java.util.Map;
 @Controller
 public class BasicController {
 
+    public static final String SPRING_BANG = "Spring!";
+
     @GetMapping("/text-basic")
     public String textBasic(Model model) {
         model.addAttribute("data", "Hello Spring!");
@@ -86,14 +88,14 @@ public class BasicController {
 
     @GetMapping("/literal")
     public String literal(Model model) {
-        model.addAttribute("data", "Spring!");
+        model.addAttribute("data", SPRING_BANG);
         return "basic/literal";
     }
 
     @GetMapping("/operation")
     public String operation(Model model) {
         model.addAttribute("nullData", null);
-        model.addAttribute("data", "Spring!");
+        model.addAttribute("data", SPRING_BANG);
         return "basic/operation";
     }
 
@@ -116,8 +118,14 @@ public class BasicController {
 
     @GetMapping("/comments")
     public String comments(Model model) {
-        model.addAttribute("data", "Spring!");
+        model.addAttribute("data", SPRING_BANG);
         return "basic/comments";
+    }
+
+    @GetMapping("/block")
+    public String block(Model model) {
+        this.addUsers(model);
+        return "basic/block";
     }
 
     private void addUsers(Model model) {
